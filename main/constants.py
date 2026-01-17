@@ -1,5 +1,7 @@
 """Constants for the phabricator-review tool."""
 
+from pathlib import Path
+
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 DEFAULT_MODEL = "x-ai/grok-4.1-fast"
@@ -17,4 +19,4 @@ CONFIG_DIR_NAME = "phab-reviewer"
 CONFIG_FILE_NAME = "config.env"
 
 # Review output directory
-REVIEW_OUTPUT_DIR = "/home/kaushik/Documents/Phabreview"
+REVIEW_OUTPUT_DIR = str(Path.home() / "Documents" / "Phabreview")
