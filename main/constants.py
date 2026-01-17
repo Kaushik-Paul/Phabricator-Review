@@ -4,7 +4,7 @@ from pathlib import Path
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
-DEFAULT_MODEL = "x-ai/grok-4.1-fast"
+DEFAULT_MODEL = "xiaomi/mimo-v2-flash:free"
 
 # Terminal colors
 COLOR_TITLE = "\033[96m"

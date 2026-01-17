@@ -287,9 +287,9 @@ def cmd_review(args: argparse.Namespace) -> int:
     output_lines.append(colorize("--- LLM Review ---", COLOR_SECTION))
     output_lines.append(review_output)
     
-    # Handle --generate-review flag
-    generate_review = getattr(args, "generate_review", False)
-    if generate_review:
+    # Handle --save-review flag
+    save_review = getattr(args, "save_review", False)
+    if save_review:
         if review:
             try:
                 filepath = save_review_markdown(review, revision, raw_diff, change_summary, model)
@@ -303,7 +303,7 @@ def cmd_review(args: argparse.Namespace) -> int:
     if args.only_review:
         # Only print the review section
         print(review_output)
-    elif not generate_review:
+    elif not save_review:
         print("\n".join(output_lines))
     
     return 0
@@ -341,9 +341,9 @@ def main() -> int:
         help="Only print the LLM review section",
     )
     parser.add_argument(
-        "--generate-review",
+        "--save-review",
         action="store_true",
-        help="Generate a markdown review file in ~/Documents/Phabreview/",
+        help="Save the review as a markdown file in ~/Documents/Phabreview/",
     )
     parser.add_argument(
         "--model",
