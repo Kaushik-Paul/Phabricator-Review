@@ -1,6 +1,16 @@
 # Phabricator Review CLI
 
-LLM-powered code review for Phabricator revisions using OpenRouter.
+**Automate your code reviews with LLM-powered precision.**
+
+Phabricator Review CLI is a powerful, extensible tool designed to bring modern AI analysis to your Phabricator workflow. It goes beyond simple diff viewing by providing deep, context-aware feedback on legacy and modern codebases alike. Whether you're dealing with the quirks of Python 2.7, complex AngularJS scopes, or intricate CSS architectures, this CLI acts as an tireless expert reviewer, catching bugs, enforcing best practices, and saving hours of manual effort.
+
+## Why Phabricator Review?
+
+- **Deep Context Analysis**: Understands cross-file implications and legacy framework patterns.
+- **Enforces Organizational Standards**: Automatically flags magic values, hardcoded colors, and deprecated patterns.
+- **Actionable Feedback**: Provides precise line-level suggestions with code snippets for immediate fixes.
+- **Seamless Workflow Integration**: Generates detailed, shareable Markdown reports in seconds.
+- **Extensible & Configurable**: Works with any OpenRouter-supported model, tailored to your specific stack.
 
 ## Features
 
@@ -102,23 +112,13 @@ You can provide credentials via:
 2. Local `.env` file in current directory
 3. Config file at `~/.config/phab-reviewer/config.env`
 
-## Review Rules
+## Customization
 
-The LLM reviewer enforces these organization-specific guidelines:
-
-- **CSS Colors**: No hardcoded `#` color literals - use `colors.less` variables
-- **Magic Values**: Extract to shared constants across HTML/CSS/JS
-- **Tooltip Text**: Define as constants, not inline strings
-- **Duplicate Constants**: Consolidate to single shared location
-- **Python 2.7**: Proper unicode handling, print statements, exception syntax, mutable defaults
-- **AngularJS**: Dependency injection, scope management, directive usage, $rootScope avoidance
-- **jQuery**: Avoid deprecated methods, prevent memory leaks, cache selectors
-- **Jinja2**: Proper escaping, macro usage, template inheritance
+The LLM reviewer can be tailored to your specific needs by modifying the prompts in `main/prompts.py`. Adjust the review guidelines to match your organization's coding standards and technology stack.
 
 ## License
-
-[MIT](LICENSE)
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
-This project is a Python port inspired by [phabReview](https://github.com/bogusdeck/phabReview).
+This project is a Python-based evolution inspired by the original [phabReview](https://github.com/bogusdeck/phabReview)
