@@ -117,4 +117,8 @@ The LLM reviewer enforces these organization-specific guidelines:
 
 ## License
 
-MIT
+[MIT](LICENSE)
+
+## Acknowledgements
+
+This project is a Python port inspired by [phabReview](https://github.com/bogusdeck/phabReview).
