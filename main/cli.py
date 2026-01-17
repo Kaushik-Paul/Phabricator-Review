@@ -289,13 +289,17 @@ def cmd_review(args: argparse.Namespace) -> int:
     
     # Handle --generate-review flag
     generate_review = getattr(args, "generate_review", False)
-    if generate_review and review:
-        try:
-            filepath = save_review_markdown(review, revision, raw_diff, change_summary, model)
-            print(colorize(f"✅ Review saved to: {filepath}", COLOR_ADD))
-        except Exception as e:
-            print(colorize(f"❌ Failed to save review: {e}", COLOR_REMOVE), file=sys.stderr)
-    
+    if generate_review:
+        if review:
+            try:
+                filepath = save_review_markdown(review, revision, raw_diff, change_summary, model)
+                print(colorize(f"✅ Review saved to: {filepath}", COLOR_ADD))
+            except Exception as e:
+                print(colorize(f"❌ Failed to save review: {e}", COLOR_REMOVE), file=sys.stderr)
+        else:
+            print(colorize("❌ Failed to generate review content.", COLOR_REMOVE), file=sys.stderr)
+            print(review_output)
+
     if args.only_review:
         # Only print the review section
         print(review_output)
