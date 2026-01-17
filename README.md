@@ -17,7 +17,7 @@ Phabricator Review CLI is a powerful, extensible tool designed to bring modern A
 - Fetch revision metadata, raw diff, and grouped change summaries
 - Generate LLM reviews with file paths, line numbers, and code snippets
 - `--only-review` flag to print just the review section
-- `--generate-review` flag to save detailed markdown report with code snippets
+- `--save-review` flag to save detailed markdown report with code snippets
 - `--model` flag to override LLM model at runtime
 - Interactive `config` command to persist credentials
 - Colored terminal output for easier scanning
@@ -90,7 +90,7 @@ phabreview --only-review D33113
 Generate a markdown review file (saved to `~/Documents/Phabreview/`):
 
 ```bash
-phabreview --generate-review D33113
+phabreview --save-review D33113
 ```
 
 Override the LLM model for a single review:
